@@ -1,14 +1,22 @@
 package ar.edu.unlam.pb1.parcial1;
 
+import java.util.Random;
+
 public class Nivel {
     Integer matriz[][];
-    
+    Random rnd = new Random();
 	 static int N;
 		
 		public boolean pintarMatrizAleatoriamente() {
-	        for(int i=0;i<matriz.length;i++) {
+			
+			for(int i=0;i<matriz.length;i++) {
 	            for(int j=0;j<matriz[i].length;j++) {
-	                matriz[i][j]=1;
+	            	int x = (int)(rnd.nextDouble() * 11.0);
+	            	if(x<2) {
+	            		matriz[i][j] = 0;
+	            	}else {
+	            		matriz[i][j] = 1;
+	            	}
 	            }
 	        }
 
@@ -17,14 +25,14 @@ public class Nivel {
 	    }
 
 	    private boolean resolverCamino(Integer[][] matriz) {
-	        int sol[][] = new int[N][N];
+	        int solucion[][] = new int[N][N];
 
-	        if (solveMazeUtil(matriz, 0, 0, sol) == false) {
-	            System.out.print("Solution doesn't exist");
+	        if (solveMazeUtil(matriz, 0, 0, solucion) == false) {
+	            pintarMatrizAleatoriamente();
 	            return false;
 	        }
 
-	        pintarSolucion(sol);
+	        pintarSolucion(solucion);
 	        return true;
 	    }
 

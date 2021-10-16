@@ -97,6 +97,20 @@ public class Nivel {
 			this.matriz = matriz;
 		}
 
+		public void restarVidaAlChoqarConObstaculo () {
+	    Integer vidas = 3;
+	    boolean tocoObstaculo = true;
+	    
+	    if (tocoObstaculo = true) {
+	    	Integer vidasActual = --vidas;
+	    	System.out.println("Te quedan " + vidasActual + " vidas.");
+	    	
+	    	if (vidas == 1) {
+	    		// terminarJuego()
+	    	}
+	    }
+}
+
 
 	    
 }

@@ -11,6 +11,8 @@ public class MainTest {
 		
 		nuevaPartida.ElegirNivel(1);
 		
+		
+		
 	}
 
 }

@@ -4,6 +4,8 @@ public class Partida {
     
 	Nivel nivelActual;
 	Jugador nuevoJugador;
+	int direccion = 1;
+	
 
 	public Partida(String nombre) {
 		this.nuevoJugador = new Jugador(nombre);
@@ -23,7 +25,6 @@ public class Partida {
 			
 		}
 		nivelActual.pintarMatrizAleatoriamente();
-		
 	}
 	
 	

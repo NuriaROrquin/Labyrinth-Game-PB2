@@ -7,4 +7,5 @@ public class Jugador {
     public Jugador(String nombre) {
 		this.nombre = nombre;
 	}
+
 }

@@ -6,7 +6,9 @@ public class Nivel {
     Integer matriz[][];
     Random rnd = new Random();
 	 static int N;
-		
+     int solucion[][];
+
+     
 		public boolean pintarMatrizAleatoriamente() {
 			
 			for(int i=0;i<matriz.length;i++) {
@@ -21,12 +23,11 @@ public class Nivel {
 	        }
 
 	        N = matriz.length;
-	        return resolverCamino(matriz);
+	        solucion = new int[N][N];
+	        return resolverCamino(matriz, solucion);
 	    }
 
-	    private boolean resolverCamino(Integer[][] matriz) {
-	        int solucion[][] = new int[N][N];
-
+	    private boolean resolverCamino(Integer[][] matriz, int[][] solucion) {
 	        if (solveMazeUtil(matriz, 0, 0, solucion) == false) {
 	            pintarMatrizAleatoriamente();
 	            return false;
@@ -38,9 +39,13 @@ public class Nivel {
 
 	    private void pintarSolucion(int[][] sol) {
 	        for (int i = 0; i < N; i++) {
-	            for (int j = 0; j < N; j++)
-	                System.out.print(" " + sol[i][j] + " ");
+	            for (int j = 0; j < N; j++) {
+
+	            	System.out.print(" " + sol[i][j] + " ");
+	            	
+	            }
 	            System.out.println();
+	            
 	        }
 	    }
 
@@ -96,15 +101,21 @@ public class Nivel {
 	    }
 
 		
+	    
 	    public Integer[][] getMatriz() {
 			return matriz;
 		}
 	    
-
 		public void setMatriz(Integer[][] matriz) {
 			this.matriz = matriz;
 		}
+		
+		public int[][] getSolucion() {
+			return solucion;
+		}
 
-
+		public void setSolucion(int[][] solucion) {
+			this.solucion = solucion;
+		}
 	    
 }

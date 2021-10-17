@@ -9,7 +9,9 @@ public class MainTest {
 		
 		Partida nuevaPartida = new Partida(nombre);
 		
-		nuevaPartida.ElegirNivel(2);
+		nuevaPartida.ElegirNivel(1);
+		
+		
 		
 	}
 

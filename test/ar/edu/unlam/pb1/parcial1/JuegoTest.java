@@ -7,8 +7,16 @@ import org.junit.Test;
 public class JuegoTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void queAlQuedarseSinVidasTermineElJuego() {
+		
+		Partida partida = new Partida ();
+		boolean valorEsperado = false;
+		
+		boolean valorObtenido = partida.terminarJuego(valorEsperado);
+		
+		assertEquals(valorEsperado, valorObtenido);		
+		
+		
 	}
 
 }

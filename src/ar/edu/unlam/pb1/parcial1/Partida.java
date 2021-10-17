@@ -4,11 +4,15 @@ public class Partida {
     
 	Nivel nivelActual;
 	Jugador nuevoJugador;
-	Jugador vidasActual;
-	Integer puntosPorVida;
-	
+	Integer vidasActual = 3;
+	Boolean ganoPartida;
+	Integer puntosPorVida = vidasActual * 2000;
 
-	public Partida(String nombre) {
+	public Partida() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Partida(String nombre, Integer vidasActual, Boolean ganoPartida) {
 		this.nuevoJugador = new Jugador(nombre);
 	}
 	
@@ -30,13 +34,16 @@ public class Partida {
 		
 	}
 
-	public void terminarJuego (Integer vidasActual){
-		puntosPorVida = vidasActual * 2000;
+	public boolean terminarJuego (boolean ganoPartida){
+		
 		if (vidasActual >= 1){
 			System.out.println("Felicidades ganaste con " + vidasActual + " vidas y " + puntosPorVida + " puntos");
+		return ganoPartida;
 		}
-		if(vidasActual == 0){
+		else{
 			System.out.println("Que lastima, te has quedado sin vidas, vuelve a intentarlo");
+			return false;
 		}
+		
 	}
 }

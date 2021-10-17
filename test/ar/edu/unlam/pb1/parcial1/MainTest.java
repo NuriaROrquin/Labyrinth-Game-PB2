@@ -1,9 +1,12 @@
 package ar.edu.unlam.pb1.parcial1;
 
+import java.util.Scanner;
+
 public class MainTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner teclado = new Scanner(System.in);
 		
 		String nombre = "Juan";
 		

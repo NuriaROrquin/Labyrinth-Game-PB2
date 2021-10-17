@@ -4,7 +4,6 @@ public class Partida {
     
 	Nivel nivelActual;
 	Jugador nuevoJugador;
-	int direccion = 1;
 	
 
 	public Partida(String nombre) {

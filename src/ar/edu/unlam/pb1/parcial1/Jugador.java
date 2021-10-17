@@ -2,7 +2,6 @@ package ar.edu.unlam.pb1.parcial1;
 
 public class Jugador {
 
-	private String nombre = "Rocio";
     private Integer posicionX = 0;
     private Integer posicionY = 0; 
     private int[][] copiaSolucion;
@@ -10,6 +9,8 @@ public class Jugador {
     private Integer copiaX = 0;
     private Integer copiaY = 0;
 
+    String nombre;
+    Integer[][] posicion = new Integer[0][0];
 
     public Jugador(String nombre) {
 		this.nombre = nombre;
@@ -61,8 +62,6 @@ public class Jugador {
     public Boolean evaluarMovimiento(int solucion[][]) {
     	this.copiaSolucion = solucion;
     	Boolean sePuedeMover = false;
-    	
-    	
     	
     	if (solucion[posicionX][posicionY] == 1 && esSeguro(copiaSolucion, posicionX, posicionY)) {
     		

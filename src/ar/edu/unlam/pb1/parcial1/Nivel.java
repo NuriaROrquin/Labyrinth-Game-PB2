@@ -8,7 +8,8 @@ public class Nivel {
 	 static int N;
      int solucion[][];
 
-     
+
+
 		public boolean pintarMatrizAleatoriamente() {
 			
 			for(int i=0;i<matriz.length;i++) {
@@ -118,4 +119,5 @@ public class Nivel {
 			this.solucion = solucion;
 		}
 	    
+	
 }

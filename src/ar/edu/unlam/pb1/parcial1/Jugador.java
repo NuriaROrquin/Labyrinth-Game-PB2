@@ -6,9 +6,10 @@ public class Jugador {
     private Integer posicionX = 0;
     private Integer posicionY = 0; 
     private int[][] copiaSolucion;
-    private Integer tamañoMatriz;
+    private Integer tamaï¿½oMatriz;
     private Integer copiaX = 0;
     private Integer copiaY = 0;
+	private Integer vidas = 3;
 
 
     public Jugador(String nombre) {
@@ -72,15 +73,27 @@ public class Jugador {
     	return sePuedeMover;
     }
 
-    public Integer obtenerTamañoMatriz () {
-    	tamañoMatriz = copiaSolucion.length;
-    	return tamañoMatriz;
+    public Integer obtenerTamaï¿½oMatriz () {
+    	tamaï¿½oMatriz = copiaSolucion.length;
+    	return tamaï¿½oMatriz;
     }
     
     private boolean esSeguro(int[][] matriz, int x, int y) {
         // if (x, y outside maze) return false
-        return (x >= 0 && x < obtenerTamañoMatriz() && y >= 0 && y < obtenerTamañoMatriz());
+        return (x >= 0 && x < obtenerTamaï¿½oMatriz() && y >= 0 && y < obtenerTamaï¿½oMatriz());
     }
     
+	public Integer restarVidaAlChoqarConObstaculo () {
+	    
+		vidas = -1;
+		return vidas;
+		
+		if (vidas < 1) {
+			//terminarJuego
+		
+		}
+		 }
    
 }
+
+

@@ -27,8 +27,13 @@ public class Partida {
 		nivelActual.pintarMatrizAleatoriamente();
 	}
 	
-	
-	
-
-
+	public Boolean seMueveElJugador(char tecla) {
+		
+		int[][] solucion = nivelActual.getSolucion();
+		
+		Boolean resultado = nuevoJugador.mover(tecla, solucion);
+		
+		return resultado;
+		
+	}
 }

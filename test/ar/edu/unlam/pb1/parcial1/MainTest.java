@@ -11,7 +11,14 @@ public class MainTest {
 		
 		nuevaPartida.ElegirNivel(1);
 		
+		Jugador uno = new Jugador(nombre);
 		
+		if (nuevaPartida.seMueveElJugador('s')) {
+		
+			System.out.println("Se Pudo");
+		} else {
+			System.out.println("No se pudo");
+		}
 		
 	}
 

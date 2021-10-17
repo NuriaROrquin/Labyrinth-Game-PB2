@@ -7,6 +7,8 @@ public class Nivel {
     Random rnd = new Random();
 	 static int N;
      int solucion[][];
+	 Integer vidas = 3;
+
 
 
 
@@ -114,6 +116,17 @@ public class Nivel {
 		public int[][] getSolucion() {
 			return solucion;
 		}
+
+		public Integer restarVidaAlChoqarConObstaculo () {
+	    
+			vidas = -1;
+			return vidas;
+			if (vidas < 1) {
+				//terminarJuego
+			}
+			 }
+	 
+
 
 		public void setSolucion(int[][] solucion) {
 			this.solucion = solucion;

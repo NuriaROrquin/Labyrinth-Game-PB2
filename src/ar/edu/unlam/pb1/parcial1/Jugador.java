@@ -5,7 +5,7 @@ public class Jugador {
     private Integer posicionX = 0;
     private Integer posicionY = 0; 
     private int[][] copiaSolucion;
-    private Integer tamañoMatriz;
+    private Integer tamaï¿½oMatriz;
     private Integer copiaX = 0;
     private Integer copiaY = 0;
 	private Integer vidas = 3;
@@ -85,15 +85,15 @@ public class Jugador {
     	return sePuedeMover;
     }
 
-    public Integer obtenerTamañoMatriz () {
-    	tamañoMatriz = copiaSolucion.length;
-    	return tamañoMatriz;
+    public Integer obtenerTamaï¿½oMatriz () {
+    	tamaï¿½oMatriz = copiaSolucion.length;
+    	return tamaï¿½oMatriz;
     }
     
     private boolean esSeguro(int[][] matriz, int x, int y) {
         boolean isSecure;
         
-        isSecure = (x >= 0 && x < obtenerTamañoMatriz() && y >= 0 && y < obtenerTamañoMatriz());
+        isSecure = (x >= 0 && x < obtenerTamaï¿½oMatriz() && y >= 0 && y < obtenerTamaï¿½oMatriz());
 
         return isSecure;
     }
@@ -102,7 +102,9 @@ public class Jugador {
 		if(vidas>1) {
 			this.vidas -= 1;
 		}
-		/*else{terminarJuego()}*/
+		/*else{
+			return terminarJuego()
+		}*/
 		
 		return vidas;
 	}

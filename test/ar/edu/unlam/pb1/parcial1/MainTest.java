@@ -10,7 +10,7 @@ public class MainTest {
 		
 		String nombre = "Juan";
 		
-		Partida nuevaPartida = new Partida(nombre);
+		Partida nuevaPartida = new Partida(nombre, null, null);
 		
 		nuevaPartida.ElegirNivel(1);
 		

@@ -16,6 +16,9 @@ public class Jugador {
     public Jugador(String nombre) {
 		this.nombre = nombre;
 	}
+	public Jugador() {
+		
+	}
     
     public Boolean mover (char direccion, int solucion[][]) {
     	Boolean seMovio = false;
@@ -98,17 +101,19 @@ public class Jugador {
         return isSecure;
     }
 
-	public Integer restarVidaAlChocarConObstaculo () {
+	Partida partida = new Partida ();
+
+
+	public boolean restarVidaAlChocarConObstaculo () {
 		if(vidas>1) {
 			this.vidas -= 1;
 		}
-		/*else{
-			return terminarJuego()
-		}*/
+		else{
+			return partida.terminarJuego(false);
+			}
 		
-		return vidas;
+		return true;
 	}
-
 	
 	public Integer getVidas() {
 		return vidas;

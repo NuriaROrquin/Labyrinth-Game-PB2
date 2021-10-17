@@ -19,4 +19,17 @@ public class JuegoTest {
 		
 	}
 
+	@Test
+	public void queAlChocarConUnObstaculoSeResteUnaVida() {
+		
+		Jugador jugador = new Jugador ();
+		boolean valorEsperado = true;
+		
+		boolean valorObtenido = jugador.restarVidaAlChocarConObstaculo();
+		
+		assertEquals(valorEsperado, valorObtenido);		
+		
+		
+	}
+
 }

@@ -7,6 +7,8 @@ public class Nivel {
     Random rnd = new Random();
 	 static int N;
      int solucion[][];
+	 Integer vidas = 3;
+
 
      
 		public boolean pintarMatrizAleatoriamente() {
@@ -114,19 +116,15 @@ public class Nivel {
 			return solucion;
 		}
 
-		public void restarVidaAlChoqarConObstaculo () {
-	    Integer vidas = 3;
-	    boolean tocoObstaculo = true;
+		public Integer restarVidaAlChoqarConObstaculo () {
 	    
-	    if (tocoObstaculo = true) {
-	    	Integer vidasActual = --vidas;
-	    	System.out.println("Te quedan " + vidasActual + " vidas.");
-	    	
-	    	if (vidas == 1) {
-	    		// terminarJuego()
-	    	}
-	    }
-}
+			vidas = -1;
+			return vidas;
+			if (vidas < 1) {
+				//terminarJuego
+			}
+			 }
+	 
 
 
 		public void setSolucion(int[][] solucion) {

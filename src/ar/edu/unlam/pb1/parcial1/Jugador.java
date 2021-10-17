@@ -8,6 +8,7 @@ public class Jugador {
     private Integer tamañoMatriz;
     private Integer copiaX = 0;
     private Integer copiaY = 0;
+	private Integer vidas = 3;
 
     String nombre;
     Integer[][] posicion = new Integer[0][0];
@@ -21,41 +22,54 @@ public class Jugador {
     	this.copiaSolucion = solucion;
     	
     	if (direccion == 87 || direccion == 119) { //w W arriba
-    		copiaY += 1;
-    		if (esSeguro(solucion, copiaX, copiaY)) {
-    			this.posicionY = copiaY;
-    		}
-    		if (evaluarMovimiento(solucion)) {
-    		return seMovio = true;
-    		}
-    	} else if (direccion == 83 || direccion ==  115) { // s S abajo
     		copiaY -= 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
     			this.posicionY = copiaY;
+    			if (evaluarMovimiento(solucion)) {
+        			seMovio = true;
+        		}else {
+        			restarVidaAlChocarConObstaculo();
+        		}
     		}
-    		if (evaluarMovimiento(solucion)) {
-    		return seMovio = true;
+    		
+    	} else if (direccion == 83 || direccion ==  115) { // s S abajo
+    		copiaY += 1;
+    		if (esSeguro(solucion, copiaX, copiaY)) {
+    			this.posicionY = copiaY;
+    			if (evaluarMovimiento(solucion)) {
+        			seMovio = true;
+        		}else {
+        			restarVidaAlChocarConObstaculo();
+        		}
     		}
+    		
     	} else if (direccion ==  68 || direccion ==  100) { // d D derecha
     		copiaX += 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
     			this.posicionX = copiaX;
+    			if (evaluarMovimiento(solucion)) {
+        			seMovio = true;
+        		}else {
+        			restarVidaAlChocarConObstaculo();
+        		}
     		}
-    		if (evaluarMovimiento(solucion)) {
-    		return seMovio = true;
-    		}
+    		
     	} else if (direccion == 65 || direccion == 97) { // a A izquierda
     		copiaX -= 1;
-    		
-    		if (esSeguro(solucion, copiaX, copiaY)) {
+
+    		if (esSeguro(solucion, copiaX, copiaY)) { //evaluo si se sale de la matriz
     			this.posicionX = copiaX;
+    			if (evaluarMovimiento(solucion)) { //evaluo si choca con obstaculo
+        			seMovio = true;
+        		}else {
+        			restarVidaAlChocarConObstaculo();
+        		}
     		}
-    		if (evaluarMovimiento(solucion)) {
-    		return seMovio = true;
-    		}
+    		
     	} else {
     		return seMovio;
     	}
+    	
     	return seMovio;
     }
 
@@ -63,11 +77,11 @@ public class Jugador {
     	this.copiaSolucion = solucion;
     	Boolean sePuedeMover = false;
     	
-    	if (solucion[posicionX][posicionY] == 1 && esSeguro(copiaSolucion, posicionX, posicionY)) {
+    	if (solucion[posicionY][posicionX] == 1 ) {
     		
     		sePuedeMover = true;
     	}
-    	
+        System.out.println(sePuedeMover);
     	return sePuedeMover;
     }
 
@@ -77,9 +91,26 @@ public class Jugador {
     }
     
     private boolean esSeguro(int[][] matriz, int x, int y) {
-        // if (x, y outside maze) return false
-        return (x >= 0 && x < obtenerTamañoMatriz() && y >= 0 && y < obtenerTamañoMatriz());
+        boolean isSecure;
+        
+        isSecure = (x >= 0 && x < obtenerTamañoMatriz() && y >= 0 && y < obtenerTamañoMatriz());
+
+        return isSecure;
     }
-    
+
+	public Integer restarVidaAlChocarConObstaculo () {
+		if(vidas>1) {
+			this.vidas -= 1;
+		}
+		/*else{terminarJuego()}*/
+		
+		return vidas;
+	}
+
+	
+	public Integer getVidas() {
+		return vidas;
+	}
    
+	
 }

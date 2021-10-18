@@ -10,6 +10,7 @@ public class Jugador {
     private Integer copiaY = 0;
 	private Integer vidas = 3;
 	private Boolean triunfo = false;
+	private Boolean movimientoInvalido = false;
 
     String nombre;
     Integer[][] posicion = new Integer[0][0];
@@ -33,6 +34,8 @@ public class Jugador {
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
     			}
+    		}else {
+    			movimientoInvalido = true;
     		}
     		
     	} else if (direccion == 83 || direccion ==  115) { // s S abajo
@@ -43,6 +46,8 @@ public class Jugador {
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
     			}
+    		}else {
+    			movimientoInvalido = true;
     		}
     		
     	} else if (direccion ==  68 || direccion ==  100) { // d D derecha
@@ -53,6 +58,8 @@ public class Jugador {
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
     			} 
+    		}else {
+    			movimientoInvalido = true;
     		}
     		
     	} else if (direccion == 65 || direccion == 97) { // a A izquierda
@@ -64,6 +71,8 @@ public class Jugador {
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
     			} 
+    		}else {
+    			movimientoInvalido = true;
     		}
     		
     	} else {
@@ -92,7 +101,7 @@ public class Jugador {
     private boolean esSeguro(int[][] matriz, int x, int y) {
         boolean isSecure;
         
-        isSecure = (x >= 0 && x < obtenerTamanoMatriz() && y >= 0 && y < obtenerTamanoMatriz() && matriz[y][x] == 1);
+        isSecure = (x >= 0 && x < obtenerTamanoMatriz() && y >= 0 && y < obtenerTamanoMatriz());
 
         return isSecure;
     }
@@ -116,6 +125,10 @@ public class Jugador {
 	
 	public Boolean getTriunfo() {
 		return triunfo;
+	}
+	
+	public Boolean getMovimientoInvalido() {
+		return movimientoInvalido;
 	}
 	
 	

@@ -2,8 +2,6 @@ package ar.edu.unlam.pb1.parcial1;
 
 import static org.junit.Assert.*;
 
-import java.util.Scanner;
-
 import org.junit.Test;
 
 public class JuegoTest {
@@ -85,7 +83,7 @@ public class JuegoTest {
 		nuevaPartida.ElegirNivel(2);
 
 		char teclaIngresada = 68;
-		Boolean resultadoMover2 = nuevaPartida.nuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
+		nuevaPartida.nuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
 		
 		Integer valorEsperado = 10;
 		Integer valorObtenido = nuevaPartida.nuevoJugador.obtenerTamanoMatriz();
@@ -103,7 +101,7 @@ public class JuegoTest {
 		nuevaPartida.ElegirNivel(3);
 		
 		char teclaIngresada = 83;
-		Boolean resultadoMover = nuevaPartida.nuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
+		nuevaPartida.nuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
 		
 		Integer valorEsperado = 12;
 		Integer valorObtenido = nuevaPartida.nuevoJugador.obtenerTamanoMatriz();

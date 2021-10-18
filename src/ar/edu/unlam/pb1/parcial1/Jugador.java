@@ -6,10 +6,13 @@ public class Jugador {
     private Integer posicionX = 0;
     private Integer posicionY = 0; 
     private int[][] copiaSolucion;
-    private Integer tama�oMatriz;
+    private Integer tamanoMatriz;
     private Integer copiaX = 0;
     private Integer copiaY = 0;
 	private Integer vidas = 3;
+	private Boolean triunfo = false;
+	private Boolean sinVida = false;
+
 
 
     public Jugador(String nombre) {
@@ -73,26 +76,52 @@ public class Jugador {
     	return sePuedeMover;
     }
 
-    public Integer obtenerTama�oMatriz () {
-    	tama�oMatriz = copiaSolucion.length;
-    	return tama�oMatriz;
+    public Integer obtenerTamanoMatriz () {
+    	tamanoMatriz = copiaSolucion.length;
+    	return tamanoMatriz;
     }
     
     private boolean esSeguro(int[][] matriz, int x, int y) {
-        // if (x, y outside maze) return false
-        return (x >= 0 && x < obtenerTama�oMatriz() && y >= 0 && y < obtenerTama�oMatriz());
+
+        boolean isSecure;
+        
+        isSecure = (x >= 0 && x < obtenerTamanoMatriz() && y >= 0 && y < obtenerTamanoMatriz());
+
+        return isSecure;
     }
+
     
-	public Integer restarVidaAlChoqarConObstaculo () {
-	    
-		vidas = -1;
-		return vidas;
+	public boolean restarVidaAlChocarConObstaculo () {
 		
-		if (vidas < 1) {
-			//terminarJuego
-		
+		if(vidas>=1) {
+			this.vidas -= 1;
+			if (vidas == 0) {
+				sinVida = true;
+			}
 		}
-		 }
+		
+		return sinVida;
+	}
+	
+	public Integer getVidas() {
+		return vidas;
+	}
+	
+	public Boolean llegoALaMeta(Integer posicionX, Integer posicionY)
+	{
+		if(posicionX == obtenerTamanoMatriz() && posicionY == obtenerTamanoMatriz())
+		{
+		triunfo = true;
+		return triunfo;
+		}else {
+			return triunfo;
+		}
+	}
+	
+	public boolean getSinVida() {
+		return sinVida;
+	}
+
    
 }
 

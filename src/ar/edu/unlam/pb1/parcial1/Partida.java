@@ -5,9 +5,15 @@ public class Partida {
 	Nivel nivelActual;
 	Jugador nuevoJugador;
 	int direccion = 1;
-	
+	Boolean ganoPartida;
+	Integer vida;
 
-	public Partida(String nombre) {
+
+	public Partida() {
+		// TODO Auto-generated constructor stub
+	}	
+
+	public Partida(String nombre, Integer vidasActual, Boolean ganoPartida) {
 		this.nuevoJugador = new Jugador(nombre);
 	}
 	
@@ -26,6 +32,7 @@ public class Partida {
 		}
 		nivelActual.pintarMatrizAleatoriamente();
 	}
+
 	
 	public Boolean seMueveElJugador(char tecla) {
 		
@@ -36,4 +43,21 @@ public class Partida {
 		return resultado;
 		
 	}
+
+
+	public void terminarJuego (){
+		
+		if (!nuevoJugador.getSinVida()){
+			System.out.println("Felicidades! Ganaste!");
+		
+		}
+		else{
+			System.out.println("Que lastima, te has quedado sin vidas, vuelve a intentarlo");
+			
+		}
+		
+	}
+	
+	
+
 }

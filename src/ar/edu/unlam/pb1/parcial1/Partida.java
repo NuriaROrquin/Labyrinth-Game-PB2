@@ -27,18 +27,5 @@ public class Partida {
 		}
 		nivelActual.pintarMatrizAleatoriamente();
 	}
-
-	/*public boolean terminarJuego(boolean ganoPartida){
-		
-		if (vidasActual >= 1){
-			System.out.println("Felicidades ganaste con " + vidasActual + " vidas y " + puntosPorVida + " puntos");
-		return ganoPartida;
-		}
-		else{
-			System.out.println("Que lastima, te has quedado sin vidas, vuelve a intentarlo");
-			return false;
-		}
-		
-	}*/
 	
 }

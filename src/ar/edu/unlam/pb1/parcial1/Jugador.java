@@ -10,6 +10,7 @@ public class Jugador {
     private Integer copiaY = 0;
 	private Integer vidas = 3;
 	private Boolean triunfo = false;
+	private Boolean esGanador = false;
 
     String nombre;
     Integer[][] posicion = new Integer[0][0];
@@ -29,10 +30,10 @@ public class Jugador {
     		copiaY -= 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
     			this.posicionY = copiaY;
-    			if (evaluarMovimiento(solucion)) {
+    			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
-        		}else {
-        			restarVidaAlChocarConObstaculo();
+    			} else if(llegoALaMeta(posicionX,posicionY)){
+    				 esGanador = true;
         		}
     		}
     		
@@ -40,10 +41,10 @@ public class Jugador {
     		copiaY += 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
     			this.posicionY = copiaY;
-    			if (evaluarMovimiento(solucion)) {
+    			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
-        		}else {
-        			restarVidaAlChocarConObstaculo();
+    			} else if(llegoALaMeta(posicionX,posicionY)){
+    				 esGanador = true;
         		}
     		}
     		
@@ -51,10 +52,10 @@ public class Jugador {
     		copiaX += 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
     			this.posicionX = copiaX;
-    			if (evaluarMovimiento(solucion)) {
+    			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
-        		}else {
-        			restarVidaAlChocarConObstaculo();
+    			} else if(llegoALaMeta(posicionX,posicionY)){
+    				 esGanador = true;
         		}
     		}
     		
@@ -63,10 +64,10 @@ public class Jugador {
 
     		if (esSeguro(solucion, copiaX, copiaY)) { //evaluo si se sale de la matriz
     			this.posicionX = copiaX;
-    			if (evaluarMovimiento(solucion)) { //evaluo si choca con obstaculo
+    			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
-        		}else {
-        			restarVidaAlChocarConObstaculo();
+    			} else if(llegoALaMeta(posicionX,posicionY)){
+    				 esGanador = true;
         		}
     		}
     		
@@ -120,11 +121,11 @@ public class Jugador {
 	
 	public Boolean llegoALaMeta(Integer posicionX, Integer posicionY)
 	{
-		if(posicionX == obtenerTamanoMatriz() && posicionY == obtenerTamanoMatriz())
-		{
-		triunfo = true;
-		return triunfo;
+		if(posicionX == obtenerTamanoMatriz() && posicionY == obtenerTamanoMatriz()){
+			triunfo = true;
+			return triunfo;
 		}else {
+			System.out.println("Ganaste");
 			return triunfo;
 		}
 	}

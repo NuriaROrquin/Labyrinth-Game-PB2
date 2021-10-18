@@ -21,6 +21,7 @@ public class Jugador {
     
     public Boolean mover (char direccion, int solucion[][]) {
     	Boolean seMovio = false;
+    	movimientoInvalido = false;
     	this.copiaSolucion = solucion;
     	
     	if (direccion == 87 || direccion == 119) { //w W arriba

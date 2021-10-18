@@ -6,7 +6,7 @@ public class Partida {
 	Jugador nuevoJugador;
 	Integer vidasActual = 3;
 	Boolean ganoPartida;
-	Integer puntosPorVida = vidasActual * 2000;
+	Integer puntosIniciales;
 	
 	public Partida(String nombre) {
 		this.nuevoJugador = new Jugador(nombre);
@@ -26,11 +26,9 @@ public class Partida {
 			
 		}
 		nivelActual.pintarMatrizAleatoriamente();
-
-		
 	}
 
-	public boolean terminarJuego (boolean ganoPartida){
+	/*public boolean terminarJuego(boolean ganoPartida){
 		
 		if (vidasActual >= 1){
 			System.out.println("Felicidades ganaste con " + vidasActual + " vidas y " + puntosPorVida + " puntos");
@@ -41,6 +39,6 @@ public class Partida {
 			return false;
 		}
 		
-	}
+	}*/
 	
 }

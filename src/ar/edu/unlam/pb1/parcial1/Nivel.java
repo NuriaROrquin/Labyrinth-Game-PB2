@@ -8,6 +8,7 @@ public class Nivel {
 	static int N;
     private int solucion[][];
     private Boolean sePuedeDibujarLaMatriz = false;
+	private int puntos;
 
 	public boolean pintarMatrizAleatoriamente() {
 		
@@ -97,16 +98,25 @@ public class Nivel {
 		this.solucion = solucion;
 	}
 
-	
 	public int getN() {
 		return N;
 	}
 
-	
 	public Boolean getSePuedeDibujarLaMatriz() {
 		return sePuedeDibujarLaMatriz;
 	}
-    
+
+	
+	public Integer getPuntos() {
+		return puntos;
+	}
 	
 
+	public void setPuntos(Integer puntos) {
+		this.puntos = puntos;
+	}
+
+	public void descontarPuntos() {
+		puntos = (int)Math.round(puntos - (puntos * 0.4));
+	}
 }

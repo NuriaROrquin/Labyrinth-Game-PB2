@@ -36,17 +36,6 @@ public class JuegoTest {
 		
 		assertEquals(valorEsperado,valorObtenido);
 	}
-	
-	@Test
-	public void queAlQuedarseSinVidasTermineElJuego() {
-		String nombre = "Juan";
-		Partida partida = new Partida(nombre);
-		boolean valorEsperado = false;
-		
-		boolean valorObtenido = partida.terminarJuego(valorEsperado);
-		
-		assertEquals(valorEsperado, valorObtenido);
-	}
 
 	@Test
 	public void queAlChocarConUnObstaculoSeResteUnaVida() {

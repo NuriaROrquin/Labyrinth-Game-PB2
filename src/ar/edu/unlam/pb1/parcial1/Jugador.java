@@ -18,9 +18,6 @@ public class Jugador {
     public Jugador(String nombre) {
 		this.nombre = nombre;
 	}
-	public Jugador() {
-		
-	}
     
     public Boolean mover (char direccion, int solucion[][]) {
     	Boolean seMovio = false;
@@ -108,7 +105,7 @@ public class Jugador {
     }
     
     private boolean esSeguro(int[][] matriz, int x, int y) {
-        boolean isSecure;
+        boolean isSecure = false;
         
         isSecure = (x >= 0 && x < obtenerTamanoMatriz() && y >= 0 && y < obtenerTamanoMatriz());
 

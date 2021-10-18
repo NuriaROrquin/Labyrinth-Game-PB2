@@ -69,7 +69,7 @@ public class MainTest {
 
 	private static void obtenerEstadoDeFinalizacion(Partida nuevaPartida) {
 		if(nuevaPartida.nuevoJugador.getTriunfo()) {
-			System.out.println("Ganaste!");
+			System.out.println("Ganaste! Tus puntos son " + nuevaPartida.nivelActual.getPuntos());
 			System.out.println("Jugamos de nuevo?");
 		} else {
 			System.out.println("Perdiste todas tus vidas :(");
@@ -95,9 +95,10 @@ public class MainTest {
 		
 		if(seMovio) {
 			System.out.println("Vas bien!");
-		}else if(!seMovio && !nuevaPartida.nuevoJugador.getMovimientoInvalido()) {
+		}else if(!seMovio && !nuevaPartida.nuevoJugador.getMovimientoInvalido() && !nuevaPartida.nuevoJugador.getTriunfo()) {
 			System.out.println("Chocaste con obstaculo");
 			nuevaPartida.nuevoJugador.restarVidaAlChocarConObstaculo();
+			nuevaPartida.nivelActual.descontarPuntos();
 		}else if(nuevaPartida.nuevoJugador.getMovimientoInvalido()) {
 			System.out.println("No podes moverte a ese lugar por que no hay posicion");
 		}

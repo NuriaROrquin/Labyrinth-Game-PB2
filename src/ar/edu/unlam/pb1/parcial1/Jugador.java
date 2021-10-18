@@ -27,7 +27,8 @@ public class Jugador {
     	this.copiaSolucion = solucion;
     	
     	if (direccion == 87 || direccion == 119) { //w W arriba
-    		copiaY -= 1;
+    		copiaX = posicionX;
+    		copiaY = posicionY - 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
     			this.posicionY = copiaY;
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
@@ -38,7 +39,8 @@ public class Jugador {
     		}
     		
     	} else if (direccion == 83 || direccion ==  115) { // s S abajo
-    		copiaY += 1;
+    		copiaX = posicionX;
+    		copiaY = posicionY + 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
     			this.posicionY = copiaY;
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
@@ -49,7 +51,8 @@ public class Jugador {
     		}
     		
     	} else if (direccion ==  68 || direccion ==  100) { // d D derecha
-    		copiaX += 1;
+    		copiaY = posicionY;
+    		copiaX = posicionX + 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
     			this.posicionX = copiaX;
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
@@ -60,7 +63,8 @@ public class Jugador {
     		}
     		
     	} else if (direccion == 65 || direccion == 97) { // a A izquierda
-    		copiaX -= 1;
+    		copiaY = posicionY;
+    		copiaX = posicionX - 1;
 
     		if (esSeguro(solucion, copiaX, copiaY)) { //evaluo si se sale de la matriz
     			this.posicionX = copiaX;
@@ -97,7 +101,7 @@ public class Jugador {
     private boolean esSeguro(int[][] matriz, int x, int y) {
         boolean isSecure;
         
-        isSecure = (x >= 0 && x < obtenerTamanoMatriz() && y >= 0 && y < obtenerTamanoMatriz());
+        isSecure = (x >= 0 && x < obtenerTamanoMatriz() && y >= 0 && y < obtenerTamanoMatriz() && matriz[y][x] == 1);
 
         return isSecure;
     }

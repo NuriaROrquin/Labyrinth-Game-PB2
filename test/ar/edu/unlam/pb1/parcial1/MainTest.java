@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MainTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		Scanner teclado = new Scanner(System.in);
 		
 		String nombre = "Juan";
@@ -39,6 +39,8 @@ public class MainTest {
 			System.out.println("Vas bien!");
 		}else if(!uno.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion()) && !uno.getTriunfo()) {
 			System.out.println("Chocaste con obstaculo");
+		}else {
+			
 		}
 		
 	}

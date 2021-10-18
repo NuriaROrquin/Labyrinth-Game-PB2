@@ -30,9 +30,11 @@ public class Jugador {
     		copiaX = posicionX;
     		copiaY = posicionY - 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
-    			this.posicionY = copiaY;
-    			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
-        			seMovio = true;
+    			if(hayUnUno(solucion, copiaX, copiaY)) {
+    				this.posicionY = copiaY;
+    				if (!llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
+            			seMovio = true;
+        			}
     			}
     		}else {
     			movimientoInvalido = true;
@@ -42,9 +44,11 @@ public class Jugador {
     		copiaX = posicionX;
     		copiaY = posicionY + 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
-    			this.posicionY = copiaY;
-    			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
-        			seMovio = true;
+    			if(hayUnUno(solucion, copiaX, copiaY)) {
+    				this.posicionY = copiaY;
+    				if (!llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
+            			seMovio = true;
+        			}
     			}
     		}else {
     			movimientoInvalido = true;
@@ -54,10 +58,13 @@ public class Jugador {
     		copiaY = posicionY;
     		copiaX = posicionX + 1;
     		if (esSeguro(solucion, copiaX, copiaY)) {
-    			this.posicionX = copiaX;
-    			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
-        			seMovio = true;
-    			} 
+    			if(hayUnUno(solucion, copiaX, copiaY)) {
+    				this.posicionX = copiaX;
+    				if (!llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
+            			seMovio = true;
+        			}
+    			}
+    			
     		}else {
     			movimientoInvalido = true;
     		}
@@ -66,11 +73,14 @@ public class Jugador {
     		copiaY = posicionY;
     		copiaX = posicionX - 1;
 
-    		if (esSeguro(solucion, copiaX, copiaY)) { //evaluo si se sale de la matriz
-    			this.posicionX = copiaX;
-    			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
-        			seMovio = true;
-    			} 
+    		if (esSeguro(solucion, copiaX, copiaY)) {
+    			if(hayUnUno(solucion, copiaX, copiaY)) {
+    				this.posicionX = copiaX;
+    				if (!llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
+            			seMovio = true;
+        			}
+    			}
+    			
     		}else {
     			movimientoInvalido = true;
     		}
@@ -82,12 +92,11 @@ public class Jugador {
     	return seMovio;
     }
 
-    public Boolean evaluarMovimiento(int solucion[][]) {
+    public Boolean hayUnUno(int solucion[][], int x, int y) {
     	this.copiaSolucion = solucion;
     	Boolean sePuedeMover = false;
     	
-    	if (solucion[posicionY][posicionX] == 1 ) {
-    		
+    	if (solucion[y][x] == 1 ) {    		
     		sePuedeMover = true;
     	}
     	return sePuedeMover;

@@ -42,7 +42,7 @@ public class MainTest {
 
 	private static void pedirLetra(Partida nuevaPartida) {
 		do {
-			ingresarLetra(nuevaPartida.nuevoJugador, nuevaPartida);
+			ingresarLetra(nuevaPartida);
 		} while (!nuevaPartida.nuevoJugador.getTriunfo() && nuevaPartida.nuevoJugador.getVidas() >= 1);
 
 		obtenerEstadoDeFinalizacion(nuevaPartida);
@@ -85,18 +85,20 @@ public class MainTest {
         }
     }
 
-	private static void ingresarLetra(Jugador uno, Partida nuevaPartida) {
+	private static void ingresarLetra(Partida nuevaPartida) {
 		System.out.println("Ingrese una tecla");
 		
 		char teclaIngresada = teclado.next().charAt(0);
 		
+		Boolean seMovio = nuevaPartida.nuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
 		
-		if(uno.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion())) {
+		
+		if(seMovio) {
 			System.out.println("Vas bien!");
-		}else if(!uno.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion()) && !uno.getTriunfo() && !nuevaPartida.nuevoJugador.getMovimientoInvalido()) {
+		}else if(!seMovio && !nuevaPartida.nuevoJugador.getMovimientoInvalido()) {
 			System.out.println("Chocaste con obstaculo");
 			nuevaPartida.nuevoJugador.restarVidaAlChocarConObstaculo();
-		}else if(nuevaPartida.nuevoJugador.getMovimientoInvalido() && !uno.getTriunfo()) {
+		}else if(nuevaPartida.nuevoJugador.getMovimientoInvalido()) {
 			System.out.println("No podes moverte a ese lugar por que no hay posicion");
 		}
 		

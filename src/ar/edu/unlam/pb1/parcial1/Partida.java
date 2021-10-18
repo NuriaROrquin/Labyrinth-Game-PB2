@@ -8,7 +8,7 @@ public class Partida {
 	Boolean ganoPartida;
 	Integer puntosPorVida = vidasActual * 2000;
 	
-	public Partida(String nombre, Integer vidasActual, Boolean ganoPartida) {
+	public Partida(String nombre) {
 		this.nuevoJugador = new Jugador(nombre);
 	}
 	

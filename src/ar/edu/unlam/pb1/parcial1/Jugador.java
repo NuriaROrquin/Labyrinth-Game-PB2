@@ -10,7 +10,6 @@ public class Jugador {
     private Integer copiaY = 0;
 	private Integer vidas = 3;
 	private Boolean triunfo = false;
-	private Boolean esGanador = false;
 
     String nombre;
     Integer[][] posicion = new Integer[0][0];
@@ -33,9 +32,7 @@ public class Jugador {
     			this.posicionY = copiaY;
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
-    			} else if(llegoALaMeta(posicionX,posicionY)){
-    				 esGanador = true;
-        		}
+    			}
     		}
     		
     	} else if (direccion == 83 || direccion ==  115) { // s S abajo
@@ -45,9 +42,7 @@ public class Jugador {
     			this.posicionY = copiaY;
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
-    			} else if(llegoALaMeta(posicionX,posicionY)){
-    				 esGanador = true;
-        		}
+    			}
     		}
     		
     	} else if (direccion ==  68 || direccion ==  100) { // d D derecha
@@ -57,9 +52,7 @@ public class Jugador {
     			this.posicionX = copiaX;
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
-    			} else if(llegoALaMeta(posicionX,posicionY)){
-    				 esGanador = true;
-        		}
+    			} 
     		}
     		
     	} else if (direccion == 65 || direccion == 97) { // a A izquierda
@@ -70,9 +63,7 @@ public class Jugador {
     			this.posicionX = copiaX;
     			if (evaluarMovimiento(solucion) && !llegoALaMeta(posicionX,posicionY)) { //evaluo si choca con obstaculo y si no llegue a la meta
         			seMovio = true;
-    			} else if(llegoALaMeta(posicionX,posicionY)){
-    				 esGanador = true;
-        		}
+    			} 
     		}
     		
     	} else {
@@ -115,14 +106,12 @@ public class Jugador {
 		return vidas;
 	}
 	
-	public Boolean llegoALaMeta(Integer posicionX, Integer posicionY)
-	{
+	public Boolean llegoALaMeta(Integer posicionX, Integer posicionY){
 		if(posicionX == obtenerTamanoMatriz()-1 && posicionY == obtenerTamanoMatriz()-1){
 			triunfo = true;
 		}
 		
 		return triunfo;
-		
 	}
 	
 	public Boolean getTriunfo() {

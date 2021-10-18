@@ -7,6 +7,7 @@ public class Nivel {
     Random rnd = new Random();
 	static int N;
     private int solucion[][];
+    private Boolean sePuedeDibujarLaMatriz = false;
 
 	public boolean pintarMatrizAleatoriamente() {
 		
@@ -29,23 +30,10 @@ public class Nivel {
     private boolean resolverCamino(Integer[][] matriz, int[][] solucion) {
         if (solveMazeUtil(matriz, 0, 0, solucion) == false) {
             pintarMatrizAleatoriamente();
-            return false;
         }
 
-        pintarSolucion(solucion);
-        return true;
-    }
-
-    private void pintarSolucion(int[][] sol) {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-
-            	System.out.print(" " + sol[i][j] + " ");
-            	
-            }
-            System.out.println();
-            
-        }
+        sePuedeDibujarLaMatriz = true;
+        return sePuedeDibujarLaMatriz;
     }
 
     private boolean solveMazeUtil(Integer[][] matriz, int x, int y, int[][] sol) {
@@ -92,8 +80,6 @@ public class Nivel {
     private boolean esSeguro(Integer[][] matriz, int x, int y) {
         return (x >= 0 && x < N && y >= 0 && y < N && matriz[x][y] == 1);
     }
-
-	
     
     public Integer[][] getMatriz() {
 		return matriz;
@@ -110,6 +96,17 @@ public class Nivel {
 	public void setSolucion(int[][] solucion) {
 		this.solucion = solucion;
 	}
+
+	
+	public int getN() {
+		return N;
+	}
+
+	
+	public Boolean getSePuedeDibujarLaMatriz() {
+		return sePuedeDibujarLaMatriz;
+	}
     
+	
 
 }

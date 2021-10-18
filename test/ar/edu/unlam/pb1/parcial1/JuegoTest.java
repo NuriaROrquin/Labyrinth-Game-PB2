@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class JuegoTest {
 
-	/*@Test
+	@Test
 	public void sePuedeCrearUnJugador() {
 		Jugador NuevoJugador = new Jugador("Juan");
 		assertNotNull(NuevoJugador);
@@ -27,57 +27,53 @@ public class JuegoTest {
 		String nombre = "Juan";
 		
 		Partida nuevaPartida = new Partida(nombre);
-		Jugador NuevoJugador = new Jugador(nombre);
 		nuevaPartida.ElegirNivel(1);
 		
 		char teclaIngresada = 83;
 		
 		Boolean valorEsperado = true;	
-		Boolean valorObtenido = NuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
+		Boolean valorObtenido = nuevaPartida.nuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
+		
+		//la matriz solucion es random. Se esta moviendo para abajo, asi que cuando en la matriz solucion hay un uno en la posicion de abajo, el test es exitoso.
 		
 		assertEquals(valorEsperado,valorObtenido);
-	
 	}
 	
 	@Test
 	public void queAlQuedarseSinVidasTermineElJuego() {
-		
-		Partida partida = new Partida ();
+		String nombre = "Juan";
+		Partida partida = new Partida(nombre);
 		boolean valorEsperado = false;
 		
 		boolean valorObtenido = partida.terminarJuego(valorEsperado);
 		
-		assertEquals(valorEsperado, valorObtenido);		
-		
-		
+		assertEquals(valorEsperado, valorObtenido);
 	}
 
 	@Test
 	public void queAlChocarConUnObstaculoSeResteUnaVida() {
+		String nombre = "Juan";
+		Partida partida = new Partida(nombre);
+		Integer valorEsperado = 2;
 		
-		Jugador jugador = new Jugador ();
-		boolean valorEsperado = true;
+		partida.nuevoJugador.restarVidaAlChocarConObstaculo();
 		
-		boolean valorObtenido = jugador.restarVidaAlChocarConObstaculo();
+		Integer valorObtenido = partida.nuevoJugador.getVidas();
 		
-		assertEquals(valorEsperado, valorObtenido);		
+		assertEquals(valorEsperado, valorObtenido);	
+	}
 		
 	public void queElegiCorrectamenteElNivel1(){
 		
 		String nombre = "Juan";
 		
 		Partida nuevaPartida = new Partida(nombre);
-		Jugador NuevoJugador = new Jugador(nombre);
 		nuevaPartida.ElegirNivel(1);
 		
-		char teclaIngresada = 83;
-		Boolean resultadoMover = NuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
-		
 		Integer valorEsperado = 6;
-		Integer valorObtenido = NuevoJugador.obtenerTama�oMatriz();
+		Integer valorObtenido = nuevaPartida.nuevoJugador.obtenerTamanoMatriz();
 		
 		assertEquals(valorEsperado,valorObtenido);
-		
 	}
 	
 	@Test
@@ -86,17 +82,15 @@ public class JuegoTest {
 		String nombre = "Juan";
 		
 		Partida nuevaPartida = new Partida(nombre);
-		Jugador NuevoJugador = new Jugador(nombre);
 		nuevaPartida.ElegirNivel(2);
-		
-		char teclaIngresada = 83;
-		Boolean resultadoMover = NuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
+
+		char teclaIngresada = 68;
+		Boolean resultadoMover2 = nuevaPartida.nuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
 		
 		Integer valorEsperado = 10;
-		Integer valorObtenido = NuevoJugador.obtenerTama�oMatriz();
+		Integer valorObtenido = nuevaPartida.nuevoJugador.obtenerTamanoMatriz();
 		
 		assertEquals(valorEsperado,valorObtenido);
-		
 	}
 	
 	
@@ -106,17 +100,15 @@ public class JuegoTest {
 		String nombre = "Juan";
 		
 		Partida nuevaPartida = new Partida(nombre);
-		Jugador NuevoJugador = new Jugador(nombre);
 		nuevaPartida.ElegirNivel(3);
 		
 		char teclaIngresada = 83;
-		Boolean resultadoMover = NuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
+		Boolean resultadoMover = nuevaPartida.nuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
 		
 		Integer valorEsperado = 12;
-		Integer valorObtenido = NuevoJugador.obtenerTama�oMatriz();
+		Integer valorObtenido = nuevaPartida.nuevoJugador.obtenerTamanoMatriz();
 		
 		assertEquals(valorEsperado,valorObtenido);
-		
 	}
 	
 	@Test
@@ -125,21 +117,16 @@ public class JuegoTest {
 		String nombre = "Juan";
 		
 		Partida nuevaPartida = new Partida(nombre);
-		Jugador NuevoJugador = new Jugador(nombre);
 		nuevaPartida.ElegirNivel(1);
+
 		
-		char teclaIngresada = 83;
-		Boolean resultadoMover = NuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
-		
-		char teclaIngresada2 = 68;
-		Boolean resultadoMover2 = NuevoJugador.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion());
-		
+		nuevaPartida.nuevoJugador.restarVidaAlChocarConObstaculo();
 		
 		Integer valorEsperado = 2;
-		Integer valorObtenido = NuevoJugador.restarVidaAlChocarConObstaculo();
+		Integer valorObtenido = nuevaPartida.nuevoJugador.getVidas();
 		
 		assertEquals(valorEsperado,valorObtenido);
-	}*/
+	}
 	
 
 

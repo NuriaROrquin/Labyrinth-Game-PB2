@@ -9,6 +9,7 @@ public class Jugador {
     private Integer copiaX = 0;
     private Integer copiaY = 0;
 	private Integer vidas = 3;
+	private Boolean triunfo = false;
 
     String nombre;
     Integer[][] posicion = new Integer[0][0];
@@ -111,6 +112,19 @@ public class Jugador {
 	public Integer getVidas() {
 		return vidas;
 	}
+	
+	public Boolean llegoALaMeta(Integer posicionX, Integer posicionY)
+	{
+		if(posicionX == obtenerTamañoMatriz() && posicionY == obtenerTamañoMatriz())
+		{
+		triunfo = true;
+		return triunfo;
+		}else {
+			return triunfo;
+		}
+	}
+	
+	
    
 	
 }

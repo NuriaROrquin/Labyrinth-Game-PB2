@@ -5,7 +5,7 @@ public class Jugador {
     private Integer posicionX = 0;
     private Integer posicionY = 0; 
     private int[][] copiaSolucion;
-    private Integer tamaï¿½oMatriz;
+    private Integer tamanoMatriz;
     private Integer copiaX = 0;
     private Integer copiaY = 0;
 	private Integer vidas = 3;
@@ -89,20 +89,18 @@ public class Jugador {
     	return sePuedeMover;
     }
 
-    public Integer obtenerTamaï¿½oMatriz () {
-    	tamaï¿½oMatriz = copiaSolucion.length;
-    	return tamaï¿½oMatriz;
+    public Integer obtenerTamanoMatriz () {
+    	tamanoMatriz = copiaSolucion.length;
+    	return tamanoMatriz;
     }
     
     private boolean esSeguro(int[][] matriz, int x, int y) {
         boolean isSecure;
         
-        isSecure = (x >= 0 && x < obtenerTamaï¿½oMatriz() && y >= 0 && y < obtenerTamaï¿½oMatriz());
+        isSecure = (x >= 0 && x < obtenerTamanoMatriz() && y >= 0 && y < obtenerTamanoMatriz());
 
         return isSecure;
     }
-
-	Partida partida = new Partida ();
 
 
 	public boolean restarVidaAlChocarConObstaculo () {
@@ -110,7 +108,7 @@ public class Jugador {
 			this.vidas -= 1;
 		}
 		else{
-			return partida.terminarJuego(false);
+			//terminarJuego
 			}
 		
 		return true;
@@ -122,7 +120,7 @@ public class Jugador {
 	
 	public Boolean llegoALaMeta(Integer posicionX, Integer posicionY)
 	{
-		if(posicionX == obtenerTamañoMatriz() && posicionY == obtenerTamañoMatriz())
+		if(posicionX == obtenerTamanoMatriz() && posicionY == obtenerTamanoMatriz())
 		{
 		triunfo = true;
 		return triunfo;

@@ -7,10 +7,6 @@ public class Partida {
 	Integer vidasActual = 3;
 	Boolean ganoPartida;
 	Integer puntosPorVida = vidasActual * 2000;
-
-	public Partida() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	public Partida(String nombre, Integer vidasActual, Boolean ganoPartida) {
 		this.nuevoJugador = new Jugador(nombre);

@@ -14,13 +14,11 @@ public class MainTest {
 		
 		nuevaPartida.ElegirNivel(1);
 		
-		Jugador uno = new Jugador(nombre);
-		
 		do {
-			ingresarLetra(teclado, uno, nuevaPartida);
-		} while (!uno.getTriunfo() && uno.getVidas() >= 1);
+			ingresarLetra(teclado, nuevaPartida.nuevoJugador, nuevaPartida);
+		} while (!nuevaPartida.nuevoJugador.getTriunfo() && nuevaPartida.nuevoJugador.getVidas() >= 1);
 		
-		if(uno.getTriunfo()) {
+		if(nuevaPartida.nuevoJugador.getTriunfo()) {
 			System.out.println("Ganaste!");
 		} else {
 			System.out.println("Perdistee");
@@ -39,6 +37,7 @@ public class MainTest {
 			System.out.println("Vas bien!");
 		}else if(!uno.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion()) && !uno.getTriunfo()) {
 			System.out.println("Chocaste con obstaculo");
+			nuevaPartida.nuevoJugador.restarVidaAlChocarConObstaculo();
 		}else {
 			
 		}

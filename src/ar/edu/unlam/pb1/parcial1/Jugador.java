@@ -107,15 +107,8 @@ public class Jugador {
     }
 
 
-	public boolean restarVidaAlChocarConObstaculo () {
-		if(vidas>1) {
-			this.vidas -= 1;
-		}
-		else{
-			//terminarJuego
-			}
-		
-		return true;
+	public void restarVidaAlChocarConObstaculo () {
+		this.vidas -= 1;
 	}
 	
 	public Integer getVidas() {

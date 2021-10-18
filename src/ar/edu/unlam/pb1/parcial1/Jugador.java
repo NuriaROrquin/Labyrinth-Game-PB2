@@ -86,7 +86,6 @@ public class Jugador {
     		
     		sePuedeMover = true;
     	}
-        System.out.println(sePuedeMover);
     	return sePuedeMover;
     }
 
@@ -121,13 +120,16 @@ public class Jugador {
 	
 	public Boolean llegoALaMeta(Integer posicionX, Integer posicionY)
 	{
-		if(posicionX == obtenerTamanoMatriz() && posicionY == obtenerTamanoMatriz()){
+		if(posicionX == obtenerTamanoMatriz()-1 && posicionY == obtenerTamanoMatriz()-1){
 			triunfo = true;
-			return triunfo;
-		}else {
-			System.out.println("Ganaste");
-			return triunfo;
 		}
+		
+		return triunfo;
+		
+	}
+	
+	public Boolean getTriunfo() {
+		return triunfo;
 	}
 	
 	

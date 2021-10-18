@@ -16,7 +16,16 @@ public class MainTest {
 		
 		Jugador uno = new Jugador(nombre);
 		
-		ingresarLetra(teclado, uno, nuevaPartida);
+		do {
+			ingresarLetra(teclado, uno, nuevaPartida);
+		} while (!uno.getTriunfo() && uno.getVidas() >= 1);
+		
+		if(uno.getTriunfo()) {
+			System.out.println("Ganaste!");
+		} else {
+			System.out.println("Perdistee");
+		}
+		
 		
 	}
 
@@ -25,18 +34,12 @@ public class MainTest {
 		
 		char teclaIngresada = teclado.nextLine().charAt(0);
 		
-		if(uno.getVidas() > 1 && uno.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion())) {
-
-			System.out.println("Se Pudo mover");
-			
-			ingresarLetra(teclado, uno, nuevaPartida);
-
-		}else {
-			System.out.println("No se pudo mover");
-			System.out.println("Se acabaron tus vidas");
-		}
-				
 		
+		if(uno.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion())) {
+			System.out.println("Vas bien!");
+		}else if(!uno.mover(teclaIngresada, nuevaPartida.nivelActual.getSolucion()) && !uno.getTriunfo()) {
+			System.out.println("Chocaste con obstaculo");
+		}
 		
 	}
 
